@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Wanderlust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #14b8a6 75%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-backdrop {
+            backdrop-filter: blur(10px);
+            background: rgba(30, 27, 75, 0.8);
+        }
+        
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-backdrop">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-display text-2xl font-bold text-white">
+                        <span class="gradient-text">Wanderlust</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-white hover:text-teal-400 transition-colors font-medium">Home</a>
+                        <a href="index.html#destinations" class="text-white hover:text-teal-400 transition-colors font-medium">Destinations</a>
+                        <a href="about.html" class="text-white hover:text-teal-400 transition-colors font-medium">About</a>
+                        <a href="contact.html" class="text-white hover:text-teal-400 transition-colors font-medium">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden" x-data="{ open: false }">
+                    <button @click="open = !open" class="text-white hover:text-teal-400 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <!-- Mobile menu -->
+                    <div x-show="open" x-transition class="absolute top-16 right-4 bg-indigo-900 rounded-lg shadow-lg py-2 w-48">
+                        <a href="index.html" class="block px-4 py-2 text-white hover:bg-indigo-800">Home</a>
+                        <a href="index.html#destinations" class="block px-4 py-2 text-white hover:bg-indigo-800">Destinations</a>
+                        <a href="about.html" class="block px-4 py-2 text-white hover:bg-indigo-800">About</a>
+                        <a href="contact.html" class="block px-4 py-2 text-white hover:bg-indigo-800">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="relative h-96 hero-bg">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative z-10 h-full flex items-center justify-center text-center px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="font-display text-5xl md:text-6xl font-bold mb-4 text-white">About Wanderlust</h1>
+                <p class="text-white text-xl md:text-2xl font-light">Your gateway to extraordinary adventures</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-8">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mb-8">
+                    Our <span class="gradient-text">Story</span>
+                </h2>
+                
+                <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+                    <p>
+                        At Wanderlust, we believe that travel is more than just visiting new places – it's about discovering yourself, connecting with different cultures, and creating memories that last a lifetime. Our passion for exploration drives us to curate the most extraordinary travel experiences around the world.
+                    </p>
+                    
+                    <p>
+                        Founded by a team of seasoned travelers and adventure enthusiasts, Wanderlust was born from a simple idea: to make the world's most beautiful destinations accessible to everyone. Whether you're seeking ancient wonders, natural beauty, vibrant cultures, or thrilling adventures, we're here to guide your journey.
+                    </p>
+                    
+                    <p>
+                        Our carefully selected destinations represent the pinnacle of travel experiences. From the timeless beauty of Italy to the ancient wonders of Japan, from the romantic elegance of France to the wild beauty of Australia, each destination offers something unique and unforgettable.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🌍</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Global Reach</h3>
+                        <p class="text-slate-600">Connecting you to the world's most incredible destinations across all continents.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">✨</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Curated Experiences</h3>
+                        <p class="text-slate-600">Handpicked destinations and experiences that showcase the best each place has to offer.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">💫</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Inspiring Journeys</h3>
+                        <p class="text-slate-600">Creating transformative travel experiences that inspire and enrich your life.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl">
+                    <h3 class="font-display text-2xl font-bold text-slate-800 mb-4">Our Mission</h3>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        To inspire wanderlust and facilitate meaningful connections between travelers and the world's most extraordinary destinations. We strive to make travel dreams accessible, sustainable, and unforgettable for adventurers of all kinds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-display text-2xl font-bold mb-4">
+                        <span class="gradient-text">Wanderlust</span>
+                    </h3>
+                    <p class="text-slate-300 mb-4 max-w-md">
+                        Your gateway to extraordinary adventures. Discover breathtaking destinations and create memories that last a lifetime.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-slate-300 hover:text-teal-400 transition-colors">Home</a></li>
+                        <li><a href="index.html#destinations" class="text-slate-300 hover:text-teal-400 transition-colors">Destinations</a></li>
+                        <li><a href="about.html" class="text-slate-300 hover:text-teal-400 transition-colors">About</a></li>
+                        <li><a href="contact.html" class="text-slate-300 hover:text-teal-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Facebook</a>
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Instagram</a>
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
+                <p class="text-slate-400">&copy; 2024 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
