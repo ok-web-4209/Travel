@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy - Timeless Beauty | Wanderlust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #14b8a6 75%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .parallax-hero {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .nav-backdrop {
+            backdrop-filter: blur(10px);
+            background: rgba(30, 27, 75, 0.8);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(20, 184, 166, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .parallax-hero {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-backdrop">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="font-display text-2xl font-bold text-white">
+                        <span class="gradient-text">Wanderlust</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-white hover:text-teal-400 transition-colors font-medium">Home</a>
+                        <a href="../index.html#destinations" class="text-white hover:text-teal-400 transition-colors font-medium">Destinations</a>
+                        <a href="../about.html" class="text-white hover:text-teal-400 transition-colors font-medium">About</a>
+                        <a href="../contact.html" class="text-white hover:text-teal-400 transition-colors font-medium">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden" x-data="{ open: false }">
+                    <button @click="open = !open" class="text-white hover:text-teal-400 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <!-- Mobile menu -->
+                    <div x-show="open" x-transition class="absolute top-16 right-4 bg-indigo-900 rounded-lg shadow-lg py-2 w-48">
+                        <a href="../index.html" class="block px-4 py-2 text-white hover:bg-indigo-800">Home</a>
+                        <a href="../index.html#destinations" class="block px-4 py-2 text-white hover:bg-indigo-800">Destinations</a>
+                        <a href="../about.html" class="block px-4 py-2 text-white hover:bg-indigo-800">About</a>
+                        <a href="../contact.html" class="block px-4 py-2 text-white hover:bg-indigo-800">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <section class="relative h-screen parallax-hero" style="background-image: url('https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 h-full flex items-center justify-center text-center px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="font-display text-6xl md:text-8xl font-bold mb-4 text-white">Italy</h1>
+                <p class="text-white text-xl md:text-2xl font-light uppercase tracking-widest mb-8">Timeless Beauty</p>
+                <p class="text-white text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Where ancient history meets Renaissance art, and every corner tells a story of unparalleled beauty and cultural magnificence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                    Why Visit <span class="gradient-text">Italy</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Italian Architecture" 
+                         class="rounded-2xl shadow-lg w-full h-96 object-cover">
+                </div>
+                <div class="space-y-6">
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Italy is a living museum where every city, town, and village offers treasures that span millennia. From the romantic canals of Venice to the ancient ruins of Rome, from the rolling hills of Tuscany to the dramatic coastlines of the Amalfi Coast.
+                    </p>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Experience the birthplace of the Renaissance, indulge in world-renowned cuisine, and immerse yourself in a culture that has shaped art, architecture, and gastronomy for centuries.
+                    </p>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Whether you're exploring Vatican City's sacred art, skiing in the Italian Alps, or relaxing on Mediterranean beaches, Italy offers an endless array of experiences that cater to every traveler's dreams.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Experiences Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                    Top <span class="gradient-text">Experiences</span>
+                </h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                    Discover the most iconic and unforgettable activities that make Italy a traveler's paradise.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Experience 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Colosseum Rome" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Explore Ancient Rome</h3>
+                        <p class="text-slate-600">Walk through history at the Colosseum, Roman Forum, and Pantheon. Experience the grandeur of the Roman Empire.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534445538923-ab38438550d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Venice Canals" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Venice Gondola Ride</h3>
+                        <p class="text-slate-600">Glide through romantic canals while exploring the floating city's magnificent palaces and bridges.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Tuscany Vineyards" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Tuscany Wine Tour</h3>
+                        <p class="text-slate-600">Sample world-class wines while enjoying the rolling hills and charming villages of the Tuscan countryside.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1520637836862-4d197d17c50a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Amalfi Coast" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Amalfi Coast Drive</h3>
+                        <p class="text-slate-600">Navigate dramatic coastal roads with breathtaking views of azure waters and cliffside villages.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Florence Art" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Renaissance Art in Florence</h3>
+                        <p class="text-slate-600">Marvel at masterpieces by Michelangelo, Leonardo da Vinci, and Botticelli in world-renowned museums.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Italian Cuisine" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-slate-800 mb-3">Authentic Italian Cuisine</h3>
+                        <p class="text-slate-600">Savor traditional pasta, pizza, gelato, and regional specialties in their places of origin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                    Quick <span class="gradient-text">Facts</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🏛️</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Capital</h3>
+                    <p class="text-slate-600">Rome (Roma)</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">👥</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Population</h3>
+                    <p class="text-slate-600">60.4 million</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💬</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Language</h3>
+                    <p class="text-slate-600">Italian</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Currency</h3>
+                    <p class="text-slate-600">Euro (EUR)</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🕐</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Time Zone</h3>
+                    <p class="text-slate-600">CET (UTC+1)</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-teal-400 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🌤️</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Best Time to Visit</h3>
+                    <p class="text-slate-600">April-June, September-October</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button 
+        x-data="scrollToTop()" 
+        x-show="showButton" 
+        @click="scrollToTop()" 
+        x-transition
+        class="floating-btn flex items-center justify-center text-white"
+        aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="font-display text-2xl font-bold mb-4">
+                        <span class="gradient-text">Wanderlust</span>
+                    </h3>
+                    <p class="text-slate-300 mb-4 max-w-md">
+                        Your gateway to extraordinary adventures. Discover breathtaking destinations and create memories that last a lifetime.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-slate-300 hover:text-teal-400 transition-colors">Home</a></li>
+                        <li><a href="../index.html#destinations" class="text-slate-300 hover:text-teal-400 transition-colors">Destinations</a></li>
+                        <li><a href="../about.html" class="text-slate-300 hover:text-teal-400 transition-colors">About</a></li>
+                        <li><a href="../contact.html" class="text-slate-300 hover:text-teal-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Facebook</a>
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Instagram</a>
+                        <a href="#" class="text-slate-300 hover:text-teal-400 transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
+                <p class="text-slate-400">&copy; 2024 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            return {
+                showButton: false,
+                init() {
+                    window.addEventListener('scroll', () => {
+                        this.showButton = window.pageYOffset > 300;
+                    });
+                },
+                scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
